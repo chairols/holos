@@ -81,5 +81,20 @@ class Categorias extends CI_Controller {
         $this->load->view('categorias/editar');
         $this->load->view('layout/footer');
     }
+    
+    public function borrar($idcategoria) {
+        $session = $this->session->all_userdata();
+        if($session['tipo_usuario'] != '1') {
+            show_404();
+        }
+        
+        $datos = array(
+            'activo' => '0'
+        );
+
+        $this->categorias_model->editar($datos, $idcategoria);
+
+        redirect('/categorias/', 'refresh');
+    }
 }
 ?>
