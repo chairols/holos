@@ -11,10 +11,10 @@
         <div class="row-fluid">
             <div class="metro-nav">
                 <div class="metro-nav-block nav-block-orange">
-                    <a data-original-title="" href="#">
-                        <i class="icon-user"></i>
-                        <div class="info">540</div>
-                        <div class="status">Profesionales</div>
+                    <a data-original-title="" href="/categorias/">
+                        <i class="icon-tags"></i>
+                        <div class="info"><?=count($categorias)?></div>
+                        <div class="status">Categorías</div>
                     </a>
                 </div>
             </div>

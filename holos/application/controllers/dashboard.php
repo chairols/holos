@@ -6,7 +6,9 @@ class Dashboard extends CI_Controller {
         $this->load->library(array(
             'session'
         ));
-        
+        $this->load->model(array(
+            'categorias_model'
+        ));
     }
     
     public function index() {
@@ -18,6 +20,8 @@ class Dashboard extends CI_Controller {
         $data['title'] = 'Dashboard';
         $data['session'] = $session;
         $data['active'] = 'dashboard';
+        
+        $data['categorias'] = $this->categorias_model->gets();
         
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');

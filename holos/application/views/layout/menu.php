@@ -20,7 +20,7 @@
                       <span>Dashboard</span>
                   </a>
               </li>
-              <li class="sub-menu">
+              <li class="sub-menu<?=($active=='categorias')?" active":""?>">
                   <a href="javascript:;" class="">
                       <i class="icon-gears"></i>
                       <span>Administrar</span>
