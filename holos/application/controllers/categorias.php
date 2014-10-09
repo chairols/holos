@@ -17,6 +17,9 @@ class Categorias extends CI_Controller {
     
     public function index() {
         $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
         if($session['tipo_usuario'] != '1') {
             show_404();
         }
@@ -49,6 +52,9 @@ class Categorias extends CI_Controller {
     
     public function editar($idcategoria = null) {
         $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
         if($session['tipo_usuario'] != '1') {
             show_404();
         }
@@ -84,6 +90,9 @@ class Categorias extends CI_Controller {
     
     public function borrar($idcategoria) {
         $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
         if($session['tipo_usuario'] != '1') {
             show_404();
         }

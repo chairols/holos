@@ -14,7 +14,7 @@
                 <div class="widget blue">
                     <div class="widget-title">
                         <h4>
-                            <i class="icon-tasks"></i> Categorías Existentes
+                            <i class="icon-tasks"></i> Especializaciones Existentes
                         </h4>
                         <span class="tools">
                             <a class="icon-chevron-down" href="javascript:;"></a>
@@ -25,23 +25,21 @@
                         <table class="table table-striped table-bordered table-advance table-hover">
                             <thead>
                                 <tr>
-                                    <th><i class="icon-tags"></i> Categoría</th>
-                                    <th><i class="icon-dollar"></i> Honorario</th>
+                                    <th><i class="icon-hospital"></i> Especialización</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($categorias as $categoria) { ?>
+                                <?php foreach($especializaciones as $especializacion) { ?>
                                 <tr>
-                                    <td><?=$categoria['categoria']?></td>
-                                    <td>$ <?=number_format($categoria['honorario'], 2)?></td>
+                                    <td><?=$especializacion['especializacion']?></td>
                                     <td>
-                                        <a href="/categorias/editar/<?=$categoria['idcategoria']?>">
+                                        <a href="/especializaciones/editar/<?=$especializacion['idespecializacion']?>">
                                             <button class="btn btn-info">
                                                 <i class="icon-edit"></i>
                                             </button>
                                         </a>
-                                        <a href="/categorias/borrar/<?=$categoria['idcategoria']?>">
+                                        <a href="/especializaciones/borrar/<?=$especializacion['idespecializacion']?>">
                                             <button class="btn btn-danger">
                                                 <i class="icon-remove"></i>
                                             </button>
@@ -58,7 +56,7 @@
                 <div class="widget blue">
                     <div class="widget-title">
                         <h4>
-                            <i class="icon-plus"></i> Agregar Categoría
+                            <i class="icon-plus"></i> Agregar Especialización
                         </h4>
                         <span class="tools">
                             <a class="icon-chevron-down" href="javascript:;"></a>
@@ -68,15 +66,9 @@
                     <div class="widget-body form">
                         <form class="form-horizontal" method="post">
                             <div class="control-group">
-                                <label class="control-label">Categoría</label>
+                                <label class="control-label">Especialización</label>
                                 <div class="controls">
-                                    <input type="text" class="small" name="categoria" required autofocus>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Honorario</label>
-                                <div class="controls">
-                                    <input type="text" class="small" name="honorario" required>
+                                    <input type="text" class="small" name="especializacion" required autofocus>
                                 </div>
                             </div>
                             <div class="form-actions">

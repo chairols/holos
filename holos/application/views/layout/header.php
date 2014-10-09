@@ -18,6 +18,10 @@
    <link href="/assets/css/style-default.css" rel="stylesheet" id="style_color" />
    <link href="/assets/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
    <link href="/assets/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+   <link rel="stylesheet" type="text/css" href="/assets/assets/chosen-bootstrap/chosen/chosen.css" />
+   <link rel="stylesheet" type="text/css" href="/assets/assets/bootstrap-datepicker/css/datepicker.css" />
+
+
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -47,19 +51,6 @@
                <!-- END RESPONSIVE MENU TOGGLER -->
                <div class="top-nav ">
                    <ul class="nav pull-right top-menu" >
-                       <!-- BEGIN SUPPORT -->
-                       <li class="dropdown mtop5">
-
-                           <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Chat">
-                               <i class="icon-comments-alt"></i>
-                           </a>
-                       </li>
-                       <li class="dropdown mtop5">
-                           <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Help">
-                               <i class="icon-headphones"></i>
-                           </a>
-                       </li>
-                       <!-- END SUPPORT -->
                        <!-- BEGIN USER LOGIN DROPDOWN -->
                        <li class="dropdown">
                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -68,8 +59,7 @@
                                <b class="caret"></b>
                            </a>
                            <ul class="dropdown-menu extended logout">
-                               <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
-                               <li><a href="#"><i class="icon-cog"></i> My Settings</a></li>
+                               <li><a href="#"><i class="icon-user"></i> Perfil</a></li>
                                <li><a href="/usuarios/logout/"><i class="icon-key"></i> Log Out</a></li>
                            </ul>
                        </li>

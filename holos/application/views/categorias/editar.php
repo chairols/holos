@@ -34,7 +34,7 @@
                                 <?php foreach($categorias as $categoria) { ?>
                                 <tr>
                                     <td><?=$categoria['categoria']?></td>
-                                    <td><?=number_format($categoria['honorario'], 2)?></td>
+                                    <td>$ <?=number_format($categoria['honorario'], 2)?></td>
                                     <td>
                                         <a href="/categorias/editar/<?=$categoria['idcategoria']?>">
                                             <button class="btn btn-info">

@@ -14,5 +14,10 @@ class Usuarios_model extends CI_Model {
                                         password = '$password'");
         return $query->row_array();
     }
+    
+    public function gets_where($datos) {
+        $query = $this->db->get_where('usuarios', $datos);
+        return $query->result_array();
+    }
 }
 ?>

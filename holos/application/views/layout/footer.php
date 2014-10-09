@@ -3,7 +3,7 @@
    
     <!-- BEGIN FOOTER -->
    <div id="footer">
-       2014 &copy; Eclypse Design
+       2014 &copy; <a href="http://eclypsedesign.com/" target="_blank">Eclypse Design</a>
    </div>
    <!-- END FOOTER -->
 
@@ -15,6 +15,9 @@
    <script type="text/javascript" src="/assets/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
    <script src="/assets/assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
    <script src="/assets/assets/bootstrap/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="/assets/assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
+   <script type="text/javascript" src="/assets/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
 
    <!-- ie8 fixes -->
    <!--[if lt IE 9]>
@@ -36,6 +39,8 @@
    <script src="/assets/js/home-page-calender.js"></script>
    <script src="/assets/js/chartjs.js"></script>
 
+   
+   <script src="/assets/js/form-component.js"></script>
    <!-- END JAVASCRIPTS -->   
 </body>
 <!-- END BODY -->
