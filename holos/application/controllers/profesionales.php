@@ -8,7 +8,8 @@ class Profesionales extends CI_Controller {
         ));
         $this->load->model(array(
             'categorias_model',
-            'especializaciones_model'
+            'especializaciones_model',
+            'profesiones_model'
         ));
         $this->load->helper(array(
             'url'
@@ -29,6 +30,7 @@ class Profesionales extends CI_Controller {
         
         $data['categorias'] = $this->categorias_model->gets();
         $data['especializaciones'] = $this->especializaciones_model->gets();
+        $data['profesiones'] = $this->profesiones_model->gets();
         
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');

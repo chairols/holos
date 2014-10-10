@@ -64,6 +64,13 @@
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Profesión</label>
+                                <div class="controls">
+                                    <select data-placeholder="Seleccionar Profesión" class="chzn-select" multiple="multiple" tabindex="6">
+                                        <?php foreach($profesiones as $profesion) { ?>
+                                        <option value="<?=$profesion['idprofesion']?>"><?=$profesion['profesion']?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Especialización</label>

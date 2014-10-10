@@ -45,5 +45,59 @@ class Especializaciones extends CI_Controller {
         $this->load->view('especializaciones/index');
         $this->load->view('layout/footer');
     }
+    
+    public function editar($idespecializacion = null) {
+        $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        if($session['tipo_usuario'] != '1') {
+            show_404();
+        }
+        
+        $data['title'] = 'Especializaciones';
+        $data['session'] = $session;
+        $data['active'] = 'especializaciones';
+        
+        $this->form_validation->set_rules('especializacion', 'Especializacion', 'required');
+        
+        if($this->form_validation->run() == FALSE) {
+            
+        } else {
+            $datos = array(
+                'especializacion' => $this->input->post('especializacion')
+            );
+            
+            $this->especializaciones_model->editar($datos, $idespecializacion);
+            
+            redirect('/especializaciones/', 'refresh');
+        }
+        
+        $data['especializaciones'] = $this->especializaciones_model->gets();
+        $data['esp'] = $this->especializaciones_model->get_where($idespecializacion);
+        
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('especializaciones/editar');
+        $this->load->view('layout/footer');
+    }
+    
+    public function borrar($idespecializacion) {
+        $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        if($session['tipo_usuario'] != '1') {
+            show_404();
+        }
+        
+        $datos = array(
+            'activo' => '0'
+        );
+
+        $this->especializaciones_model->editar($datos, $idespecializacion);
+
+        redirect('/especializaciones/', 'refresh');
+    }
 }
 ?>
