@@ -32,7 +32,9 @@ class Usuarios extends CI_Controller {
             if(!empty($usuario)) {
                 $datos = array(
                     'SID' => $usuario['idusuario'],
-                    'tipo_usuario' => $usuario['idtipo_usuario']
+                    'tipo_usuario' => $usuario['idtipo_usuario'],
+                    'nombre' => $usuario['nombre'],
+                    'apellido' => $usuario['apellido']
                 );
                 $this->session->set_userdata($datos);
 
