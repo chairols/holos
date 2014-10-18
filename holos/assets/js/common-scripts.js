@@ -129,5 +129,6 @@ var Script = function () {
         height: 'auto'
     });
 
-
+    inicio();
+    
 }();

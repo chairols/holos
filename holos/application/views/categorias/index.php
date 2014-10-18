@@ -37,12 +37,12 @@
                                     <td>$ <?=number_format($categoria['honorario'], 2)?></td>
                                     <td>
                                         <a href="/categorias/editar/<?=$categoria['idcategoria']?>">
-                                            <button class="btn btn-info">
+                                            <button class="btn btn-info tooltips" data-placement="top" data-original-title="Editar">
                                                 <i class="icon-edit"></i>
                                             </button>
                                         </a>
                                         <a href="/categorias/borrar/<?=$categoria['idcategoria']?>">
-                                            <button class="btn btn-danger">
+                                            <button class="btn btn-danger tooltips" data-placement="top" data-original-title="Borrar">
                                                 <i class="icon-remove"></i>
                                             </button>
                                         </a>

@@ -27,11 +27,11 @@
                       <span class="arrow"></span>
                   </a>
                   <ul class="sub">
-                      <li<?=($active=='categorias')?" class='active'":""?>><a class="" href="/categorias/"><i class="icon-tags"></i> Categorías</a></li>
-                      <li<?=($active=='consultantes')?" class='active'":""?>><a class="" href="/consultantes/"><i class="icon-user"></i> Consultantes</a></li>
-                      <li<?=($active=='especializaciones')?" class='active'":""?>><a class="" href="/especializaciones/"><i class="icon-hospital"></i> Especializaciones</a></li>
-                      <li<?=($active=='profesionales')?" class='active'":""?>><a class="" href="/profesionales/"><i class="icon-user-md"></i> Profesionales</a></li>
-                      <li<?=($active=='profesiones')?" class='active'":""?>><a class="" href="/profesiones/"><i class="icon-stethoscope"></i> Profesiones</a></li>
+                      <li<?=($active=='categorias')?" class='active'":""?>><a class="" href="/categorias/">Categorías</a></li>
+                      <li<?=($active=='consultantes')?" class='active'":""?>><a class="" href="/consultantes/">Consultantes</a></li>
+                      <li<?=($active=='especializaciones')?" class='active'":""?>><a class="" href="/especializaciones/">Especializaciones</a></li>
+                      <li<?=($active=='profesionales')?" class='active'":""?>><a class="" href="/profesionales/">Profesionales</a></li>
+                      <li<?=($active=='profesiones')?" class='active'":""?>><a class="" href="/profesiones/">Profesiones</a></li>
                   </ul>
               </li>
               <?php } ?>

@@ -39,6 +39,8 @@
    <script src="/assets/js/home-page-calender.js"></script>
    <script src="/assets/js/chartjs.js"></script>
 
+   <!-- pulsate -->
+   <script src="/assets/js/jquery.pulsate.min.js"></script>
    
    <script src="/assets/js/form-component.js"></script>
    <!-- END JAVASCRIPTS -->   

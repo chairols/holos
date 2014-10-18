@@ -9,11 +9,13 @@
         </div>
         
         <div class="row-fluid">
-            <div class="metro-nav">
-                <div class="metro-nav-block nav-block-orange">
-                    <a data-original-title="" href="/categorias/">
-                        <i class="icon-tags"></i>
-                        <div class="info"><?=count($categorias)?></div>
+            <div class="metro-nav metro-fix-view">
+                <div class="metro-nav-block nav-block-orange long">
+                    <a data-original-title="" href="/categorias/" class="text-center">
+                        <span class="value">
+                            <i class="icon-tags"></i> 
+                            <?=count($categorias)?>
+                        </span>
                         <div class="status">Categorías</div>
                     </a>
                 </div>
