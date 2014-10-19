@@ -26,8 +26,7 @@
                             <thead>
                                 <tr>
                                     <th><i class="icon-user"></i> Consultante</th>
-                                    <th>Estado</th>
-                                    <th>&nbsp;</th>
+                                    <th><i class="icon-info-sign"></i> Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,24 +35,14 @@
                                     <td><?=$consultante['nombre']?> <?=$consultante['apellido']?></td>
                                     <td>
                                         <?php if($consultante['activo'] == '1') { ?>
-                                        <span class="label label-success"><i class="icon-thumbs-up"></i> ACTIVO</span>
+                                        <a href="/consultantes/activar/<?=$consultante['idusuario']?>/0/">
+                                            <span class="label label-success"><i class="icon-thumbs-up"></i> ACTIVO</span>
+                                        </a>
                                         <?php } else { ?>
-                                        <span class="label label-important"><i class="icon-thumbs-down"></i> INACTIVO</span>
+                                        <a href="/consultantes/activar/<?=$consultante['idusuario']?>/1/">
+                                            <span class="label label-important"><i class="icon-thumbs-down"></i> INACTIVO</span>
+                                        </a>
                                         <?php } ?>
-                                    </td>
-                                    <td>
-                                        <a href="/consultantes/editar/<?=$consultante['idusuario']?>">
-                                            <button class="btn btn-info tooltips" data-placement="top" data-original-title="Editar">
-                                                <i class="icon-edit"></i>
-                                            </button>
-                                        </a>
-                                        <!--
-                                        <a href="/consultantes/borrar/<?=$consultante['idusuario']?>">
-                                            <button class="btn btn-danger">
-                                                <i class="icon-remove"></i>
-                                            </button>
-                                        </a>
-                                        -->
                                     </td>
                                 </tr>
                                 <?php } ?>
@@ -166,6 +155,8 @@
         $(".chzn-select-deselect").chosen({
             allow_single_deselect:true
         });
+        
+        cambiar();
         
         $("#zona").change(function() {
             cambiar();

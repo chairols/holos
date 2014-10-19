@@ -27,6 +27,24 @@ class Usuarios_model extends CI_Model {
     
     public function set($datos) {
         $this->db->insert('usuarios', $datos);
+        return $this->db->insert_id();
+    }
+    
+    public function set_profesiones($datos) {
+        $this->db->insert_batch('usuarios_profesiones', $datos);
+    }
+    
+    public function set_especializaciones($datos) {
+        $this->db->insert_batch('usuarios_especializaciones', $datos);
+    }
+    
+    public function set_categorias($datos) {
+        $this->db->insert_batch('usuarios_categorias', $datos);
+    }
+    
+    public function update($datos, $idusuario) {
+        $this->db->where('idusuario', $idusuario);
+        $this->db->update('usuarios', $datos);
     }
 }
 ?>

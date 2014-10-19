@@ -73,12 +73,28 @@ class Consultantes extends CI_Controller {
         
         $data['consultantes'] = $this->usuarios_model->gets_where($datos);
         $data['zonas'] = $this->zonas_model->gets();
-        $data['subzonas'] = $this->subzonas_model->gets($data['zonas'][0]['idzona']);
         
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');
         $this->load->view('consultantes/index');
         $this->load->view('layout/footer');
+    }
+    
+    public function activar($idusuario, $estado) {
+        $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        if($session['tipo_usuario'] != '1') {
+            show_404();
+        }
+        
+        $datos = array(
+            'activo' => $estado
+        );
+        $this->usuarios_model->update($datos, $idusuario);
+        
+        redirect('/consultantes/', 'refresh');
     }
 }
 

@@ -26,12 +26,26 @@
                             <thead>
                                 <tr>
                                     <th><i class="icon-user-md"></i> Profesional</th>
-                                    <th><i class="icon-stethoscope"></i> Profesión</th>
-                                    <th><i class="icon-hospital"></i> Especialización</th>
+                                    <th><i class="icon-info-sign"></i> Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                <?php foreach($profesionales as $profesional) { ?>
+                                <tr>
+                                    <td><?=$profesional['nombre']?> <?=$profesional['apellido']?></td>
+                                    <td>
+                                        <?php if($profesional['activo'] == '1') { ?>
+                                        <a href="/profesionales/activar/<?=$profesional['idusuario']?>/0/">
+                                            <span class="label label-success"><i class="icon-thumbs-up"></i> ACTIVO</span>
+                                        </a>
+                                        <?php } else { ?>
+                                        <a href="/profesionales/activar/<?=$profesional['idusuario']?>/1/">
+                                            <span class="label label-important"><i class="icon-thumbs-down"></i> INACTIVO</span>
+                                        </a>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
@@ -65,7 +79,7 @@
                             <div class="control-group">
                                 <label class="control-label">Profesión</label>
                                 <div class="controls">
-                                    <select data-placeholder="Seleccionar Profesión" class="chzn-select" multiple="multiple" tabindex="6">
+                                    <select name="profesiones[]" data-placeholder="Seleccionar Profesión" class="chzn-select" multiple="multiple" tabindex="6">
                                         <?php foreach($profesiones as $profesion) { ?>
                                         <option value="<?=$profesion['idprofesion']?>"><?=$profesion['profesion']?></option>
                                         <?php } ?>
@@ -75,7 +89,7 @@
                             <div class="control-group">
                                 <label class="control-label">Especialización</label>
                                 <div class="controls">
-                                    <select data-placeholder="Seleccionar Especialización" class="chzn-select" multiple="multiple" tabindex="6">
+                                    <select name="especializaciones[]" data-placeholder="Seleccionar Especialización" class="chzn-select" multiple="multiple" tabindex="6">
                                         <?php foreach($especializaciones as $especializacion) { ?>
                                         <option value="<?=$especializacion['idespecializacion']?>"><?=$especializacion['especializacion']?></option>
                                         <?php } ?>
@@ -85,7 +99,7 @@
                             <div class="control-group">
                                 <label class="control-label">Categoría</label>
                                 <div class="controls">
-                                    <select data-placeholder="Seleccionar Categorías" class="chzn-select" multiple="multiple" tabindex="6">
+                                    <select name="categorias[]" data-placeholder="Seleccionar Categorías" class="chzn-select" multiple="multiple" tabindex="6">
                                         <?php foreach ($categorias as $categoria) { ?>
                                         <option value="<?=$categoria['idcategoria']?>"><?=$categoria['categoria']?></option>
                                         <?php } ?>
@@ -100,9 +114,21 @@
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Zona</label>
+                                <div class="controls">
+                                    <select data-placeholder="Seleccione Zona" tabindex="-1" id="zona" name="zona">
+                                        <?php foreach($zonas as $zona) { ?>
+                                        <option value="<?=$zona['idzona']?>"><?=$zona['zona']?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Subzona</label>
+                                <div class="controls">
+                                    <select data-placeholder="Seleccione Subzona" tabindex="-1" name="subzona" id="resultado">
+                                        
+                                    </select>
+                                </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Teléfono</label>
@@ -140,3 +166,27 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function inicio() {
+        
+        cambiar();
+        
+        $("#zona").change(function() {
+            cambiar();
+        });
+    }
+    
+    function cambiar() {
+        $.ajax({
+            type: 'GET',
+            url: '/subzonas/ajax/'+$("#zona").val(),
+            beforeSend: function() {
+                $("#resultado").html("<img src='/assets/img/ajax-loader.gif'>");
+            },
+            success: function(data) {
+                $("#resultado").html(data);
+            }
+        });
+    }
+</script>
