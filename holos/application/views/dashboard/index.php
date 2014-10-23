@@ -10,7 +10,7 @@
         
         <div class="row-fluid">
             <div class="metro-nav metro-fix-view">
-                <div class="metro-nav-block nav-block-orange long">
+                <div class="metro-nav-block nav-block-orange">
                     <a data-original-title="" href="/categorias/" class="text-center">
                         <span class="value">
                             <i class="icon-tags"></i> 
