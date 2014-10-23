@@ -43,6 +43,11 @@
    <script src="/assets/js/jquery.pulsate.min.js"></script>
    
    <script src="/assets/js/form-component.js"></script>
+   
+   <script type="text/javascript" src="/assets/assets/data-tables/jquery.dataTables.js"></script>
+   <script type="text/javascript" src="/assets/assets/data-tables/DT_bootstrap.js"></script>
+
+   <script src="/assets/js/dynamic-table.js"></script>
    <!-- END JAVASCRIPTS -->   
 </body>
 <!-- END BODY -->
