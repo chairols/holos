@@ -33,5 +33,19 @@ class Especializaciones_model extends CI_Model {
         $this->db->where('idespecializacion', $idespecializacion);
         $this->db->update('especializaciones', $datos);
     }
+    
+    public function gets_mis_especializaciones_para_combo($idusuario) {
+        $query = $this->db->query("SELECT *
+                                    FROM 
+                                        especializaciones e
+                                    LEFT JOIN
+                                        usuarios_especializaciones ue
+                                    ON
+                                        e.idespecializacion = ue.idespecializacion AND
+                                        ue.idusuario = '$idusuario'
+                                    ORDER BY
+                                        e.especializacion");
+        return $query->result_array();
+    }
 }
 ?>

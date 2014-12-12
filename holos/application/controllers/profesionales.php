@@ -12,7 +12,8 @@ class Profesionales extends CI_Controller {
             'especializaciones_model',
             'profesiones_model',
             'zonas_model',
-            'usuarios_model'
+            'usuarios_model',
+            'condicionesiva_model'
         ));
         $this->load->helper(array(
             'url'
@@ -33,6 +34,7 @@ class Profesionales extends CI_Controller {
         
         $this->form_validation->set_rules('nombre', 'Nombre', 'required');
         $this->form_validation->set_rules('apellido', 'Apellido', 'required');
+        $this->form_validation->set_rules('cuit', 'CUIT', 'required');
         $this->form_validation->set_rules('direccion', 'Dirección', 'required');
         $this->form_validation->set_rules('zona', 'Zona', 'required');
         $this->form_validation->set_rules('subzona', 'Subzona', 'required');
@@ -53,9 +55,15 @@ class Profesionales extends CI_Controller {
                 $datos = array(
                     'nombre' => $this->input->post('nombre'),
                     'apellido' => $this->input->post('apellido'),
+                    'cuit' => $this->input->post('cuit'),
+                    'condicioniva' => $this->input->post('condicioniva'),
+                    'iibb' => $this->input->post('iibb'),
                     'direccion' => $this->input->post('direccion'),
                     'zona' => $this->input->post('zona'),
                     'subzona' => $this->input->post('subzona'),
+                    'direccion2' => $this->input->post('direccion2'),
+                    'zona2' => $this->input->post('zona2'),
+                    'subzona2' => $this->input->post('subzona2'),
                     'telefono' => $this->input->post('telefono'),
                     'email' => $this->input->post('email'),
                     'password' => $this->input->post('password'),
@@ -110,6 +118,7 @@ class Profesionales extends CI_Controller {
         $data['especializaciones'] = $this->especializaciones_model->gets();
         $data['profesiones'] = $this->profesiones_model->gets();
         $data['zonas'] = $this->zonas_model->gets();
+        $data['condicionesiva'] = $this->condicionesiva_model->gets();
         
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');

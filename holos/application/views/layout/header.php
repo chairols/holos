@@ -20,7 +20,7 @@
    <link href="/assets/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
    <link rel="stylesheet" type="text/css" href="/assets/assets/chosen-bootstrap/chosen/chosen.css" />
    <link rel="stylesheet" type="text/css" href="/assets/assets/bootstrap-datepicker/css/datepicker.css" />
-
+   <link rel="stylesheet" type="text/css" href="/assets/assets/jquery-tags-input/jquery.tagsinput.css" />
 
 </head>
 <!-- END HEAD -->
@@ -59,7 +59,7 @@
                                <b class="caret"></b>
                            </a>
                            <ul class="dropdown-menu extended logout">
-                               <li><a href="#"><i class="icon-user"></i> Perfil</a></li>
+                               <li><a href="/usuarios/perfil/"><i class="icon-user"></i> Perfil</a></li>
                                <li><a href="/usuarios/logout/"><i class="icon-key"></i> Log Out</a></li>
                            </ul>
                        </li>

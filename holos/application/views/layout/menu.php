@@ -35,6 +35,38 @@
                   </ul>
               </li>
               <?php } ?>
+              <?php if($session['tipo_usuario'] == '2') { ?>
+              <li class="sub-menu<?=($active=='dashboard')?" active":""?>">
+                  <a class="" href="/dashboard/">
+                      <i class="icon-dashboard"></i>
+                      <span>Dashboard</span>
+                  </a>
+              </li>
+              <li class="sub-menu<?=($active=='perfil'||$active=='especializaciones'||$active=='categorias')?" active":""?>">
+                  <a href="javascript:;" class="">
+                      <i class="icon-user-md"></i>
+                      <span>Gestionar CV</span>
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li<?=($active=='perfil')?" class='active'":""?>><a class="" href="/usuarios/perfil/">Perfil</a></li>
+                      <li<?=($active=='especializaciones')?" class='active'":""?>><a class="" href="/especializaciones/mis_especializaciones/">Especializaciones</a></li>
+                      <li<?=($active=='categorias')?" class='active'":""?>><a class="" href="#">Categorías</a></li>
+                  </ul>
+              </li>
+              <li class="sub-menu<?=($active=='agenda')?" active":""?>">
+                  <a class="" href="/agenda/">
+                      <i class="icon-calendar"></i>
+                      <span>Agenda</span>
+                  </a>
+              </li>
+              <li class="sub-menu<?=($active=='consultas')?" active":""?>">
+                  <a class="" href="/consultas/">
+                      <i class="icon-comments-alt"></i>
+                      <span>Consultas</span>
+                  </a>
+              </li>
+              <?php } ?>
           </ul>
          <!-- END SIDEBAR MENU -->
       </div>

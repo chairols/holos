@@ -48,6 +48,10 @@
    <script type="text/javascript" src="/assets/assets/data-tables/DT_bootstrap.js"></script>
 
    <script src="/assets/js/dynamic-table.js"></script>
+   
+   <script src="/assets/assets/jquery-tags-input/jquery.tagsinput.min.js"></script>
+   
+   <script src="/assets/js/external-dragging-calendar.js"></script>
    <!-- END JAVASCRIPTS -->   
 </body>
 <!-- END BODY -->

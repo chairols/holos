@@ -8,7 +8,8 @@ class Usuarios extends CI_Controller {
             'form_validation'
         ));
         $this->load->model(array(
-            'usuarios_model'
+            'usuarios_model',
+            'especializaciones_model'
         ));
         $this->load->helper(array(
             'url'
@@ -49,6 +50,34 @@ class Usuarios extends CI_Controller {
     public function logout() {
         $this->session->sess_destroy();
         redirect('/usuarios/login/', 'refresh');
+    }
+    
+    public function perfil() {
+        $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        switch ($session['tipo_usuario']) {
+            case '1':
+            case '2':
+                $data['title'] = 'Perfil';
+                $data['session'] = $session;
+                $data['active'] = 'perfil';
+                $datos = array(
+                    'idusuario' => $session['SID']
+                );
+                $data['usuario'] = $this->usuarios_model->get_where($datos);
+                $data['especializaciones'] = $this->especializaciones_model->gets_mis_especializaciones_para_combo($session['SID']);
+                break;
+
+            default:
+                show_404();
+        }
+        
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('usuarios/perfil');
+        $this->load->view('layout/footer');
     }
 }
 

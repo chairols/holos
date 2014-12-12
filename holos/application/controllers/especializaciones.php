@@ -99,5 +99,26 @@ class Especializaciones extends CI_Controller {
 
         redirect('/especializaciones/', 'refresh');
     }
+    
+    public function mis_especializaciones() {
+        $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        if($session['tipo_usuario'] != '2') {
+            show_404();
+        }
+        
+        $data['title'] = 'Especializaciones';
+        $data['session'] = $session;
+        $data['active'] = 'especializaciones';
+        
+        $data['especializaciones'] = $this->especializaciones_model->gets_mis_especializaciones_para_combo($session['SID']);
+        
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('especializaciones/mis_especializaciones');
+        $this->load->view('layout/footer');
+    }
 }
 ?>
