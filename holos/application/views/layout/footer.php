@@ -17,7 +17,7 @@
    <script src="/assets/assets/bootstrap/js/bootstrap.min.js"></script>
    <script type="text/javascript" src="/assets/assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
    <script type="text/javascript" src="/assets/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-
+   <script type="text/javascript" src="/assets/assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
 
    <!-- ie8 fixes -->
    <!--[if lt IE 9]>
@@ -28,6 +28,7 @@
    <script src="/assets/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>
    <script src="/assets/js/jquery.sparkline.js" type="text/javascript"></script>
    <script src="/assets/assets/chart-master/Chart.js"></script>
+   <script src="/assets/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
 
    <!--common script for all pages-->
    <script src="/assets/js/common-scripts.js"></script>
@@ -51,7 +52,8 @@
    
    <script src="/assets/assets/jquery-tags-input/jquery.tagsinput.min.js"></script>
    
-   <script src="/assets/js/external-dragging-calendar.js"></script>
+   
+   <!--<script src="/assets/js/external-dragging-calendar.js"></script>
    <!-- END JAVASCRIPTS -->   
 </body>
 <!-- END BODY -->

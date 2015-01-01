@@ -22,8 +22,9 @@ class Dashboard extends CI_Controller {
         if(!isset($session['SID'])) {
             redirect('/usuarios/login/', 'refresh');
         }
-        if($session['tipo_usuario'] == '1' || $session['tipo_usuario'] == '2') {
-            if($session['tipo_usuario'] == '1') { //  Administrador
+        
+        switch ($session['tipo_usuario']) {
+            case '1':  // Administrador
                 $data['title'] = 'Dashboard';
                 $data['session'] = $session;
                 $data['active'] = 'dashboard';
@@ -41,16 +42,24 @@ class Dashboard extends CI_Controller {
                 $data['consultantes'] = $this->usuarios_model->gets_where($datos);
                 $data['especializaciones'] = $this->especializaciones_model->gets();
                 $data['profesiones'] = $this->profesiones_model->gets();
-            }
-            
-            if($session['tipo_usuario'] == '2') {   //  Profesionales
+
+                break;
+            case '2':
                 $data['title'] = 'Dashboard';
                 $data['session'] = $session;
                 $data['active'] = 'dashboard';
-            }
-        } else {
-            show_404();
+                
+                break;
+            case '3':
+                $data['title'] = 'Dashboard';
+                $data['session'] = $session;
+                $data['active'] = 'dashboard';
+                break;
+            default:
+                show_404();
+                break;
         }
+        
         
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');

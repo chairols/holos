@@ -14,6 +14,13 @@ var Script = function () {
             right: 'month,basicWeek,basicDay'
         },
         editable: true,
+        eventSources: [
+            {
+                url: '/consultas/feed/',
+                color: 'yellow',
+                textColor: 'black'
+            }
+        ],
         events: [
             {
                 title: 'All Day Event',
@@ -62,5 +69,23 @@ var Script = function () {
         ]
     });
 
+    Calendario();
 
+/*
+    $("#calendario").fullCalendar({
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,basicWeek,basicDay'
+        },
+        editable: true,
+        
+        events: [
+            {
+                title: 'All Day Event',
+                start: new Date(y, m, d+1)
+            }
+        ]
+    });
+*/
 }();

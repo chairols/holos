@@ -33,5 +33,19 @@ class Categorias_model extends CI_Model {
         $this->db->where('idcategoria', $idcategoria);
         $this->db->update('categorias', $datos);
     }
+    
+    public function gets_mis_categorias_para_combo($idusuario) {
+        $query = $this->db->query("SELECT *
+                                    FROM 
+                                        categorias c
+                                    LEFT JOIN
+                                        usuarios_categorias uc
+                                    ON
+                                        c.idcategoria = uc.idcategoria AND
+                                        uc.idusuario = '$idusuario'
+                                    ORDER BY
+                                        c.categoria");
+        return $query->result_array();
+    }
 }
 ?>

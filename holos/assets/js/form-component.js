@@ -53,7 +53,9 @@ var Script = function () {
 
     //time picker
 
-    $('#timepicker1, #timepicker3').timepicker();
+    $('#timepicker1, #timepicker3').timepicker({
+        showMeridian: false
+    });
 
     $('#timepicker2, #timepicker4').timepicker({
         minuteStep: 1,
@@ -86,7 +88,7 @@ var Script = function () {
     $(function(){
         window.prettyPrint && prettyPrint();
         $('#dp1').datepicker({
-            format: 'mm-dd-yyyy'
+            format: 'dd-mm-yyyy'
         });
         $('#dp2').datepicker();
         $('#dp3').datepicker();

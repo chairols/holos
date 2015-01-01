@@ -54,6 +54,12 @@
                       <li<?=($active=='categorias')?" class='active'":""?>><a class="" href="#">Categorías</a></li>
                   </ul>
               </li>
+              <li class="sub-menu<?=($active=='frecuencia')?" active":""?>">
+                  <a class="" href="/consultas/frecuencia/">
+                      <i class="icon-list"></i>
+                      <span>Consultas</span>
+                  </a>
+              </li>
               <li class="sub-menu<?=($active=='agenda')?" active":""?>">
                   <a class="" href="/agenda/">
                       <i class="icon-calendar"></i>
@@ -64,6 +70,26 @@
                   <a class="" href="/consultas/">
                       <i class="icon-comments-alt"></i>
                       <span>Consultas</span>
+                  </a>
+              </li>
+              <?php } ?>
+              <?php if($session['tipo_usuario'] == '3') { ?>
+              <li class="sub-menu<?=($active=='dashboard')?" active":""?>">
+                  <a class="" href="/dashboard/">
+                      <i class="icon-dashboard"></i>
+                      <span>Dashboard</span>
+                  </a>
+              </li>
+              <li class="sub-menu<?=($active=='cartilla')?" active":""?>">
+                  <a class="" href="/profesionales/cartilla/">
+                      <i class="icon-user-md"></i>
+                      <span>Cartilla</span>
+                  </a>
+              </li>
+              <li class="sub-menu<?=($active=='vinculos')?" active":""?>">
+                  <a class="" href="/profesionales/vinculos/">
+                      <i class="icon-resize-small"></i>
+                      <span>Vínculos</span>
                   </a>
               </li>
               <?php } ?>

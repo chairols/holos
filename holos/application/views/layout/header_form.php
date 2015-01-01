@@ -16,12 +16,25 @@
    <link href="/assets/css/style.css" rel="stylesheet" />
    <link href="/assets/css/style-responsive.css" rel="stylesheet" />
    <link href="/assets/css/style-default.css" rel="stylesheet" id="style_color" />
-   <link href="/assets/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
-   <link href="/assets/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+   
+   <link href="/assets/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+   <link rel="stylesheet" type="text/css" href="/assets/assets/uniform/css/uniform.default.css" />
+   
    <link rel="stylesheet" type="text/css" href="/assets/assets/chosen-bootstrap/chosen/chosen.css" />
+   <link rel="stylesheet" type="text/css" href="/assets/assets/jquery-tags-input/jquery.tagsinput.css" />
+   <link rel="stylesheet" type="text/css" href="/assets/assets/clockface/css/clockface.css" />
+   <link rel="stylesheet" type="text/css" href="/assets/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
    <link rel="stylesheet" type="text/css" href="/assets/assets/bootstrap-datepicker/css/datepicker.css" />
    <link rel="stylesheet" type="text/css" href="/assets/assets/bootstrap-timepicker/compiled/timepicker.css" />
-   <link rel="stylesheet" type="text/css" href="/assets/assets/jquery-tags-input/jquery.tagsinput.css" />
+   <link rel="stylesheet" type="text/css" href="/assets/assets/bootstrap-colorpicker/css/colorpicker.css" />
+   <link rel="stylesheet" href="/assets/assets/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" />
+   <link rel="stylesheet" type="text/css" href="/assets/assets/bootstrap-daterangepicker/daterangepicker.css" />
+   
+   <link href="/assets/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
+   <link href="/assets/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+   
+   
+   
 
 </head>
 <!-- END HEAD -->

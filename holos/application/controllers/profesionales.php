@@ -126,6 +126,34 @@ class Profesionales extends CI_Controller {
         $this->load->view('layout/footer');
     }
     
+    public function cartilla() {
+        $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        if($session['tipo_usuario'] != '3') {
+            show_404();
+        }
+        
+        $data['title'] = 'Cartilla de Profesionales';
+        $data['session'] = $session;
+        $data['active'] = 'cartilla';
+        
+        $datos = array(
+            'idtipo_usuario' => '2',
+            'activo' => '1'
+        );
+        $data['profesionales'] = $this->usuarios_model->gets_where($datos);
+        foreach($data['profesionales'] as $key => $value) { 
+            $data['profesionales'][$key]['profesiones'] = $this->profesiones_model->gets_profesiones_por_usuario($value['idusuario']);
+        }
+        
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('profesionales/cartilla');
+        $this->load->view('layout/footer');
+    }
+    
     public function activar($idusuario, $estado) {
         $session = $this->session->all_userdata();
         if(!isset($session['SID'])) {
@@ -141,6 +169,21 @@ class Profesionales extends CI_Controller {
         $this->usuarios_model->update($datos, $idusuario);
         
         redirect('/profesionales/', 'refresh');
+    }
+    
+    public function agenda($idusuario) {
+        $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        if($session['tipo_usuario'] != '3') {
+            show_404();
+        }
+        
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('profesionales/agenda');
+        $this->load->view('layout/footer');
     }
 }
 ?>

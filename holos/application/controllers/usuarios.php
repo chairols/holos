@@ -9,7 +9,10 @@ class Usuarios extends CI_Controller {
         ));
         $this->load->model(array(
             'usuarios_model',
-            'especializaciones_model'
+            'especializaciones_model',
+            'condicionesiva_model',
+            'profesiones_model',
+            'categorias_model'
         ));
         $this->load->helper(array(
             'url'
@@ -67,7 +70,10 @@ class Usuarios extends CI_Controller {
                     'idusuario' => $session['SID']
                 );
                 $data['usuario'] = $this->usuarios_model->get_where($datos);
+                $data['condicionesiva'] = $this->condicionesiva_model->gets();
                 $data['especializaciones'] = $this->especializaciones_model->gets_mis_especializaciones_para_combo($session['SID']);
+                $data['categorias'] = $this->categorias_model->gets_mis_categorias_para_combo($session['SID']);
+                $data['profesiones'] = $this->profesiones_model->gets_mis_profesiones_para_combo($session['SID']);
                 break;
 
             default:
