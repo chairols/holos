@@ -16,5 +16,9 @@ class Subzonas_model extends CI_Model {
         return $query->result_array();
     }
     
+    public function get_where($datos) {
+        $query = $this->db->get_where('subzonas', $datos);
+        return $query->row_array();
+    }
 }
 ?>

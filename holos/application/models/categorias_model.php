@@ -47,5 +47,16 @@ class Categorias_model extends CI_Model {
                                         c.categoria");
         return $query->result_array();
     }
+    
+    public function gets_categorias_por_usuario($idusuario) {
+        $query = $this->db->query("SELECT *
+                                    FROM
+                                        usuarios_categorias uc,
+                                        categorias c
+                                    WHERE
+                                        uc.idcategoria = c.idcategoria AND
+                                        uc.idusuario = $idusuario");
+        return $query->result_array();
+    }
 }
 ?>

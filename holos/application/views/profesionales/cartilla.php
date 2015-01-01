@@ -39,7 +39,7 @@
                                         <?php } ?>
                                     </td>
                                     <td>
-                                        <a class="btn dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Ver CV">
+                                        <a class="btn dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="/profesionales/cv/<?=$profesional['idusuario']?>/" data-original-title="Ver CV">
                                             <i class="icon-user-md"></i>
                                         </a>
                                         <a class="btn dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="/profesionales/agenda/<?=$profesional['idusuario']?>/" data-original-title="Agenda">

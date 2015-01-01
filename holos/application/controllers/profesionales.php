@@ -13,7 +13,8 @@ class Profesionales extends CI_Controller {
             'profesiones_model',
             'zonas_model',
             'usuarios_model',
-            'condicionesiva_model'
+            'condicionesiva_model',
+            'subzonas_model'
         ));
         $this->load->helper(array(
             'url'
@@ -179,10 +180,69 @@ class Profesionales extends CI_Controller {
         if($session['tipo_usuario'] != '3') {
             show_404();
         }
+        $data['title'] = 'Agenda';
+        $data['session'] = $session;
+        $data['active'] = 'agenda';
         
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');
         $this->load->view('profesionales/agenda');
+        $this->load->view('layout/footer');
+    }
+    
+    public function cv($idusuario) {
+        $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        if($session['tipo_usuario'] != '3') {
+            show_404();
+        }
+        $data['title'] = 'Curriculum Vitae';
+        $data['session'] = $session;
+        $data['active'] = 'cv';
+        
+        $datos = array(
+            'idusuario' => $idusuario,
+            'idtipo_usuario' => '2',
+            'activo' => '1'
+        );
+        $data['profesional'] = $this->usuarios_model->get_where($datos);
+        
+        $datos = array(
+            'idcondicion' => $data['profesional']['condicioniva']
+        );
+        $data['condicioniva'] = $this->condicionesiva_model->get_where($datos);
+        
+        $data['profesiones'] = $this->profesiones_model->gets_profesiones_por_usuario($data['profesional']['idusuario']);
+        
+        $data['especializaciones'] = $this->especializaciones_model->gets_especializaciones_por_usuario($data['profesional']['idusuario']);
+        
+        $data['categorias'] = $this->categorias_model->gets_categorias_por_usuario($data['profesional']['idusuario']);
+        
+        $datos = array(
+            'idzona' => $data['profesional']['zona']
+        );
+        $data['zona'] = $this->zonas_model->get_where($datos);
+        
+        $datos = array(
+            'idsubzona' => $data['profesional']['subzona']
+        );
+        $data['subzona'] = $this->subzonas_model->get_where($datos);
+        
+        $datos = array(
+            'idzona' => $data['profesional']['zona2']
+        );
+        $data['zona2'] = $this->zonas_model->get_where($datos);
+        
+        $datos = array(
+            'idsubzona' => $data['profesional']['subzona2']
+        );
+        $data['subzona2'] = $this->subzonas_model->get_where($datos);
+        
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('profesionales/cv');
         $this->load->view('layout/footer');
     }
 }

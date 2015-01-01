@@ -49,6 +49,11 @@ class Dashboard extends CI_Controller {
                 $data['session'] = $session;
                 $data['active'] = 'dashboard';
                 
+                $datos = array(
+                    'idtipo_usuario' => '2',
+                    'activo' => '1'
+                );
+                $data['profesionales'] = $this->usuarios_model->gets_where($datos);
                 break;
             case '3':
                 $data['title'] = 'Dashboard';

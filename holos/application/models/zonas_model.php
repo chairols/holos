@@ -13,5 +13,10 @@ class Zonas_model extends CI_Model {
                                         zona");
         return $query->result_array();
     }
+    
+    public function get_where($datos) {
+        $query = $this->db->get_where('zonas', $datos);
+        return $query->row_array();
+    }
 }
 ?>

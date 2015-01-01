@@ -13,5 +13,10 @@ class Condicionesiva_model extends CI_Model {
                                         condicion");
         return $query->result_array();
     }
+    
+    public function get_where($datos) {
+        $query = $this->db->get_where('condicionesiva', $datos);
+        return $query->row_array();
+    }
 }
 ?>

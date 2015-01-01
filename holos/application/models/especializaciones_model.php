@@ -47,5 +47,16 @@ class Especializaciones_model extends CI_Model {
                                         e.especializacion");
         return $query->result_array();
     }
+    
+    public function gets_especializaciones_por_usuario($idusuario) {
+        $query = $this->db->query("SELECT *
+                                    FROM
+                                        usuarios_especializaciones ue,
+                                        especializaciones e
+                                    WHERE
+                                        ue.idespecializacion = e.idespecializacion AND
+                                        ue.idusuario = $idusuario");
+        return $query->result_array();
+    }
 }
 ?>

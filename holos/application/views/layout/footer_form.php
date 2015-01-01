@@ -3,7 +3,7 @@
    
     <!-- BEGIN FOOTER -->
    <div id="footer">
-       2014 &copy; <a href="http://eclypsedesign.com/" target="_blank">Eclypse Design</a>
+       2015 &copy; <a href="http://eclypsedesign.com/" target="_blank">Eclypse Design</a>
    </div>
    <!-- END FOOTER -->
 
