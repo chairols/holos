@@ -14,7 +14,8 @@ class Profesionales extends CI_Controller {
             'zonas_model',
             'usuarios_model',
             'condicionesiva_model',
-            'subzonas_model'
+            'subzonas_model',
+            'consultas_model'
         ));
         $this->load->helper(array(
             'url'
@@ -183,6 +184,18 @@ class Profesionales extends CI_Controller {
         $data['title'] = 'Agenda';
         $data['session'] = $session;
         $data['active'] = 'agenda';
+        
+        $datos = array(
+            'idusuario' => $idusuario,
+            'activo' => 1
+        );
+        $data['profesional'] = $this->usuarios_model->get_where($datos);
+        
+        $datos = array(
+            'estado' => 'Disponible',
+            'idusuario' => $idusuario
+        );
+        $data['disponibles'] = $this->consultas_model->gets_where($datos);
         
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');

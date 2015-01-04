@@ -11,7 +11,8 @@ class Consultas extends CI_Controller {
             'url'
         ));
         $this->load->model(array(
-            'consultas_model'
+            'consultas_model',
+            'consultas_respuestas_model'
         ));
     }
     
@@ -70,14 +71,89 @@ class Consultas extends CI_Controller {
         $this->load->view('layout/footer_form');
     }
     
-    public function feed() {
-        $data = array(
-            'title' => 'algo',
-            'start' => '2014-12-17',
-            'allDay' => true
-        );
+    public function vinculos($idusuario) {
+        $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        if($session['tipo_usuario'] != '3') {
+            show_404();
+        }
+        $data['title'] = 'Vínculos';
+        $data['session'] = $session;
+        $data['active'] = 'vinculos';
         
-        echo json_encode($data);
+        $datos = array(
+            'estado' => 'Disponible',
+            'idusuario' => $idusuario
+        );
+        $data['disponibles'] = $this->consultas_model->gets_where($datos);
+        
+        
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('consultas/vinculos');
+        $this->load->view('layout/footer');
+    }
+    
+    public function crear($idconsulta) {
+        $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        if($session['tipo_usuario'] != '3') {
+            show_404();
+        }
+        $data['title'] = 'Crear vínculo';
+        $data['session'] = $session;
+        $data['active'] = 'vinculos';
+        
+        $datos = array(
+            'idconsulta' => $idconsulta
+        );
+        $data['consulta'] = $this->consultas_model->get_where($datos);
+        $data['respuestas'] = $this->consultas_respuestas_model->gets_hilo_para_paciente($data['consulta']['idusuario'], $session['SID'], $idconsulta);
+        
+        
+        $this->form_validation->set_rules('texto', 'Texto', 'required');
+        
+        if($this->form_validation->run() == FALSE) {
+            
+        } else {
+            $config['upload_path'] = './upload';
+            $config['allowed_types'] = '*';
+            
+            $this->load->library('upload', $config);
+            $nombre_de_campo = 'adjunto';
+            $adjunto = null;
+            if(!$this->upload->do_upload($nombre_de_campo)) {
+                $error = array('error' => $this->upload->display_errors());
+            } else {
+                $adjunto = array('upload_data' => $this->upload->data());
+            }
+            
+            $datos = array(
+                'texto' => $this->input->post('texto'),
+                'idconsulta' => $idconsulta,
+                'idprofesional' => $data['consulta']['idusuario'],
+                'idpaciente' => $session['SID'],
+                'idusuario' => $session['SID']
+            );
+            
+            if($adjunto != null) {
+                $datos['adjunto'] = '/upload/'.$adjunto['upload_data']['raw_name'].$adjunto['upload_data']['file_ext'];
+            }
+            
+            
+            $this->consultas_respuestas_model->set($datos);
+            
+            redirect("/consultas/crear/$idconsulta/", 'refresh');
+        }
+        
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('consultas/crear');
+        $this->load->view('layout/footer');
     }
 }
 ?>

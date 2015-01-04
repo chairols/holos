@@ -10,7 +10,7 @@
         
         <div class="row-fluid">
             <div class="span12">
-                <div class="widget green">
+                <div class="widget blue">
                     <div class="widget-title">
                         <h4>
                             <i class="icon-tasks"></i> Profesionales Existentes
@@ -39,14 +39,11 @@
                                         <?php } ?>
                                     </td>
                                     <td>
-                                        <a class="btn dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="/profesionales/cv/<?=$profesional['idusuario']?>/" data-original-title="Ver CV">
+                                        <a class="btn dropdown-toggle element" data-placement="top" data-toggle="tooltip" href="/profesionales/cv/<?=$profesional['idusuario']?>/" data-original-title="Ver CV">
                                             <i class="icon-user-md"></i>
                                         </a>
-                                        <a class="btn dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="/profesionales/agenda/<?=$profesional['idusuario']?>/" data-original-title="Agenda">
+                                        <a class="btn dropdown-toggle element" data-placement="top" data-toggle="tooltip" href="/profesionales/agenda/<?=$profesional['idusuario']?>/" data-original-title="Agenda">
                                             <i class="icon-calendar"></i>
-                                        </a>
-                                        <a class="btn dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Solicitar Vínculo">
-                                            <i class="icon-resize-small"></i>
                                         </a>
                                     </td>
                                 </tr>

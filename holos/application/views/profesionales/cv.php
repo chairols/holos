@@ -10,7 +10,7 @@
         
         <div class="row-fluid">
             <div class="span6">
-                <div class="widget red">
+                <div class="widget blue">
                     <div class="widget-title">
                         <h4>
                             <i class="icon-tasks"></i> Profesional

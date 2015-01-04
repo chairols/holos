@@ -71,11 +71,7 @@
 <script type="text/javascript">
     function Calendario() {
         
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-    
+       
         $("#calendario").fullCalendar({
         header: {
             left: 'prev,next today',

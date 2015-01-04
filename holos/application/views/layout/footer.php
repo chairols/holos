@@ -9,6 +9,7 @@
 
    <!-- BEGIN JAVASCRIPTS -->
    <!-- Load javascripts at bottom, this will reduce page load time -->
+   <script src="/assets/js/jquery-1.8.2.min.js"></script>
    <script src="/assets/js/jquery-1.8.3.min.js"></script>
    <script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
    <script type="text/javascript" src="/assets/assets/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js"></script>
@@ -52,7 +53,10 @@
    
    <script src="/assets/assets/jquery-tags-input/jquery.tagsinput.min.js"></script>
    
-   
+   <script type="text/javascript">
+       inicio();
+   </script>
+   <!--<script src="/assets/js/js-externos.js"></script>-->
    <!--<script src="/assets/js/external-dragging-calendar.js"></script>
    <!-- END JAVASCRIPTS -->   
 </body>

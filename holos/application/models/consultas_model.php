@@ -13,6 +13,12 @@ class Consultas_model extends CI_Model {
         $query = $this->db->get_where('consultas', $datos);
         return $query->result_array();
     }
+    
+    public function get_where($datos) {
+        $query = $this->db->get_where('consultas', $datos);
+        return $query->row_array();
+    }
+    
 }
 
 ?>
