@@ -28,5 +28,21 @@ class consultas_respuestas_model extends CI_Model {
                                         timestamp");
         return $query->result_array();
     }
+    
+    public function gets_hilos_por_consulta_profesional($idprofesional) {
+        $query = $this->db->query("SELECT *
+                                    FROM
+                                        consultas_respuestas cr,
+                                        usuarios u,
+                                        consultas c
+                                    WHERE
+                                        cr.idprofesional = '$idprofesional' AND
+                                        cr.idconsulta = c.idconsulta
+                                    GROUP BY
+                                        cr.idconsulta
+                                    ORDER BY
+                                        c.fecha DESC");
+        return $query->result_array();
+    }
 }
 ?>

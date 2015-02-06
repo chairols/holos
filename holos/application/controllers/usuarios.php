@@ -66,6 +66,9 @@ class Usuarios extends CI_Controller {
                 $data['title'] = 'Perfil';
                 $data['session'] = $session;
                 $data['active'] = 'perfil';
+                
+                $this->form_validation->set_rules('');
+                
                 $datos = array(
                     'idusuario' => $session['SID']
                 );

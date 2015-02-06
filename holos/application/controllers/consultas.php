@@ -12,7 +12,8 @@ class Consultas extends CI_Controller {
         ));
         $this->load->model(array(
             'consultas_model',
-            'consultas_respuestas_model'
+            'consultas_respuestas_model',
+            'categorias_model'
         ));
     }
     
@@ -24,6 +25,7 @@ class Consultas extends CI_Controller {
         
         $this->form_validation->set_rules('dia', 'Dia', 'required');
         $this->form_validation->set_rules('hora', 'Hora', 'required');
+        $this->form_validation->set_rules('categoria', 'Categoria', 'required');
         
         if($this->form_validation->run() == FALSE) {
             
@@ -41,6 +43,7 @@ class Consultas extends CI_Controller {
             $datos = array(
                 'fecha' => $fecha,
                 'estado' => 'Disponible',
+                'idcategoria' => $this->input->post('categoria'),
                 'idusuario' => $session['SID']
             );
             
@@ -54,11 +57,8 @@ class Consultas extends CI_Controller {
                 $data['title'] = 'Frecuencia de Consultas';
                 $data['session'] = $session;
                 $data['active'] = 'frecuencia';
-                $datos = array(
-                    'idusuario' => $session['SID']
-                );
-                $data['consultas'] = $this->consultas_model->gets_where($datos);
-                
+                $data['consultas'] = $this->consultas_model->gets_mis_consultas($session['SID']);
+                $data['categorias'] = $this->categorias_model->gets_mis_categorias_para_combo($session['SID']);
                 break;
 
             default:
