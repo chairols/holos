@@ -35,7 +35,7 @@ class Profesiones_model extends CI_Model {
     }
     
     public function gets_mis_profesiones_para_combo($idusuario) {
-        $query = $this->db->query("SELECT *
+        $query = $this->db->query("SELECT p.idprofesion, p.profesion, up.idusuario
                                     FROM 
                                         profesiones p
                                     LEFT JOIN
@@ -57,6 +57,15 @@ class Profesiones_model extends CI_Model {
                                         up.idprofesion = p.idprofesion AND
                                         up.idusuario = $idusuario");
         return $query->result_array();
+    }
+    
+    public function delete_usuarios_profesiones($idusuario) {
+        $this->db->delete('usuarios_profesiones', array('idusuario' => $idusuario));
+        
+    }
+    
+    public function set_usuarios_profesiones($datos) {
+        $this->db->insert('usuarios_profesiones', $datos);
     }
 }
 ?>

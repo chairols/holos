@@ -35,7 +35,7 @@ class Especializaciones_model extends CI_Model {
     }
     
     public function gets_mis_especializaciones_para_combo($idusuario) {
-        $query = $this->db->query("SELECT *
+        $query = $this->db->query("SELECT e.idespecializacion, e.especializacion, ue.idusuario
                                     FROM 
                                         especializaciones e
                                     LEFT JOIN
@@ -57,6 +57,15 @@ class Especializaciones_model extends CI_Model {
                                         ue.idespecializacion = e.idespecializacion AND
                                         ue.idusuario = $idusuario");
         return $query->result_array();
+    }
+    
+    public function delete_usuarios_especializaciones($idusuario) {
+        $this->db->delete('usuarios_especializaciones', array('idusuario' => $idusuario));
+        
+    }
+    
+    public function set_usuarios_especializaciones($datos) {
+        $this->db->insert('usuarios_especializaciones', $datos);
     }
 }
 ?>

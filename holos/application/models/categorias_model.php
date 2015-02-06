@@ -35,7 +35,7 @@ class Categorias_model extends CI_Model {
     }
     
     public function gets_mis_categorias_para_combo($idusuario) {
-        $query = $this->db->query("SELECT *
+        $query = $this->db->query("SELECT c.idcategoria, c.categoria, uc.idusuario, c.color
                                     FROM 
                                         categorias c
                                     LEFT JOIN
@@ -57,6 +57,15 @@ class Categorias_model extends CI_Model {
                                         uc.idcategoria = c.idcategoria AND
                                         uc.idusuario = $idusuario");
         return $query->result_array();
+    }
+    
+    public function delete_usuarios_categorias($idusuario) {
+        $this->db->delete('usuarios_categorias', array('idusuario' => $idusuario));
+        
+    }
+    
+    public function set_usuarios_categorias($datos) {
+        $this->db->insert('usuarios_categorias', $datos);
     }
 }
 ?>

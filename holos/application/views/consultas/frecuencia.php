@@ -8,10 +8,8 @@
             </div>
         </div>
         
+        
         <div class="row-fluid">
-            
-            
-            
             <div class="span6" data-tablet="span6 fix-margin" data-desktop="span6">
                 <div class="widget red">
                     <div class="widget-title">
@@ -33,7 +31,7 @@
                 <div class="widget green">
                     <div class="widget-title">
                         <h4>
-                            <i class="icon-list"></i> Frecuencia de Consultas
+                            <i class="icon-list"></i> Categorías
                         </h4>
                         <span class="tools">
                             <a class="icon-chevron-down" href="javascript:;"></a>
@@ -109,7 +107,7 @@
             </div>
             
             <div class="row-fluid">
-                <div class="span6">
+                <div class="span6 offset6">
                     <div class="widget yellow">
                         <div class="widget-title">
                             <h4>

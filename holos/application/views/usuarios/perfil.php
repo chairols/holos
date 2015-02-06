@@ -1,3 +1,6 @@
+    <?php switch ($session['tipo_usuario']) {
+    case '2': // Profesional
+?>
 <div id="main-content">
     <div class="container-fluid">
         <div class="row-fluid">
@@ -62,7 +65,7 @@
                                 <div class="controls">
                                     <select name="profesiones[]" data-placeholder="Seleccionar Profesión" class="chzn-select" multiple="multiple" tabindex="6">
                                         <?php foreach($profesiones as $profesion) { ?>
-                                        <option value="<?=$profesion['idprofesion']?>"<?=($profesion['idprofesion'])?" selected":""?>><?=$profesion['profesion']?></option>
+                                        <option value="<?=$profesion['idprofesion']?>"<?=($profesion['idusuario'])?" selected":""?>><?=$profesion['profesion']?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -82,7 +85,7 @@
                                 <div class="controls">
                                     <select name="categorias[]" data-placeholder="Seleccionar Categoría" class="chzn-select" multiple="multiple" tabindex="6">
                                         <?php foreach($categorias as $categoria) { ?>
-                                        <option value="<?=$categoria['idcategoria']?>"<?=($categoria['idcategoria'])?" selected":""?>><?=$categoria['categoria']?></option>
+                                        <option value="<?=$categoria['idcategoria']?>"<?=($categoria['idusuario'])?" selected":""?>><?=$categoria['categoria']?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -95,9 +98,21 @@
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Zona</label>
+                                <div class="controls">
+                                    <select data-placeholder="Seleccione Zona" tabindex="-1" id="zona" name="zona">
+                                        <?php foreach($zonas as $zona) { ?>
+                                        <option value="<?=$zona['idzona']?>"<?=($zona['idzona']==$usuario['zona'])?" selected":""?>><?=$zona['zona']?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Subzona</label>
+                                <div class="controls">
+                                    <select data-placeholder="Seleccione Subzona" tabindex="-1" name="subzona" id="resultado">
+                                        
+                                    </select>
+                                </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Dirección alternativa</label>
@@ -107,9 +122,21 @@
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Zona alternativa</label>
+                                <div class="controls">
+                                    <select data-placeholder="Seleccione Zona" tabindex="-1" id="zona2" name="zona2">
+                                        <?php foreach($zonas as $zona) { ?>
+                                        <option value="<?=$zona['idzona']?>"<?=($zona['idzona']==$usuario['zona2'])?" selected":""?>><?=$zona['zona']?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Subzona alternativa</label>
+                                <div class="controls">
+                                    <select data-placeholder="Seleccione Subzona" tabindex="-1" name="subzona2" id="resultado2">
+                                        
+                                    </select>
+                                </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Teléfono</label>
@@ -146,3 +173,54 @@
         </div>
     </div>
 </div>
+<?php 
+     break;
+
+    default:
+     break;
+}
+?>
+<script type="text/javascript">
+    function inicio() {
+        
+        cambiar();
+        cambiar2();
+        
+        $("#zona").change(function() {
+            cambiar();
+        });
+        
+        $("#zona2").change(function() {
+            cambiar2();
+        });
+        
+        $('#tags_1').tagsInput({width:'220'});
+    }
+    
+    function cambiar() {
+        $.ajax({
+            type: 'GET',
+            url: '/subzonas/ajax/'+$("#zona").val(),
+            beforeSend: function() {
+                $("#resultado").html("<img src='/assets/img/ajax-loader.gif'>");
+            },
+            success: function(data) {
+                $("#resultado").html(data);
+            }
+        });
+    }
+    
+    function cambiar2() {
+        $.ajax({
+            type: 'GET',
+            url: '/subzonas/ajax/'+$("#zona2").val(),
+            beforeSend: function() {
+                $("#resultado2").html("<img src='/assets/img/ajax-loader.gif'>");
+            },
+            success: function(data) {
+                $("#resultado2").html(data);
+            }
+        });
+    }
+        
+</script>
