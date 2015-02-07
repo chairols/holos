@@ -63,7 +63,7 @@
                 <div class="widget blue">
                     <div class="widget-title">
                         <h4>
-                            <i class="icon-plus"></i> Agregar Consultante
+                            <i class="icon-edit"></i> Editar Consultante
                         </h4>
                         <span class="tools">
                             <a class="icon-chevron-down" href="javascript:;"></a>
@@ -75,26 +75,26 @@
                             <div class="control-group">
                                 <label class="control-label">Nombre</label>
                                 <div class="controls">
-                                    <input type="text" class="small" name="nombre" required autofocus>
+                                    <input type="text" class="small" name="nombre" value="<?=$usuario['nombre']?>" required autofocus>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Apellido</label>
                                 <div class="controls">
-                                    <input type="text" class="small" name="apellido" required>
+                                    <input type="text" class="small" name="apellido" value="<?=$usuario['apellido']?>" required>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Fecha de Nacimiento</label>
                                 <div class="controls">
-                                    <input id="dp1" type="text" size="16" class="m-ctrl-medium" name="fecha_nacimiento" required>
+                                    <input id="dp1" type="text" size="16" class="m-ctrl-medium" name="fecha_nacimiento" value="<?=$usuario['fecha_nacimiento']?>" required>
                                 </div>
 
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Dirección</label>
                                 <div class="controls">
-                                    <input type="text" clas="small" name="direccion" required>
+                                    <input type="text" clas="small" name="direccion" value="<?=$usuario['direccion']?>" required>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -102,7 +102,7 @@
                                 <div class="controls">
                                     <select data-placeholder="Seleccione Zona" tabindex="-1" id="zona" name="zona">
                                         <?php foreach($zonas as $zona) { ?>
-                                        <option value="<?=$zona['idzona']?>"><?=$zona['zona']?></option>
+                                        <option value="<?=$zona['idzona']?>"<?=($zona['idzona']==$usuario['zona'])?" selected":""?>><?=$zona['zona']?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -118,25 +118,25 @@
                             <div class="control-group">
                                 <label class="control-label">Teléfono</label>
                                 <div class="controls">
-                                    <input type="text" class="small" name="telefono" required>
+                                    <input type="text" class="small" name="telefono" value="<?=$usuario['telefono']?>" required>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Email</label>
                                 <div class="controls">
-                                    <input type="email" class="small" name="email" required>
+                                    <input type="email" class="small" value="<?=$usuario['email']?>" disabled>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Contraseña</label>
                                 <div class="controls">
-                                    <input type="password" class="small" name="password" required>
+                                    <input type="password" class="small" name="password">
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Reescribir Contraseña</label>
                                 <div class="controls">
-                                    <input type="password" class="small" name="password2" required>
+                                    <input type="password" class="small" name="password2">
                                 </div>
                             </div>
                             <div class="form-actions">

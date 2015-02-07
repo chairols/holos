@@ -96,6 +96,65 @@ class Consultantes extends CI_Controller {
         
         redirect('/consultantes/', 'refresh');
     }
+    
+    public function editar($idusuario) {
+        $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        if($session['tipo_usuario'] != '1') {
+            show_404();
+        }
+        $data['title'] = 'Consultantes';
+        $data['session'] = $session;
+        $data['active'] = 'consultantes';
+        
+        $this->form_validation->set_rules('nombre', 'Nombre', 'required');
+        $this->form_validation->set_rules('apellido', 'Apellido', 'required');
+        $this->form_validation->set_rules('fecha_nacimiento', 'Fecha de Nacimiento', 'required');
+        $this->form_validation->set_rules('direccion', 'Direccion', 'required');
+        $this->form_validation->set_rules('zona', 'Zona', 'required');
+        $this->form_validation->set_rules('subzona', 'Subzona', 'required');
+        $this->form_validation->set_rules('telefono', 'Teléfono', 'required');
+        
+        if($this->form_validation->run() == FALSE) {
+            
+        } else {
+            
+            $datos = array(
+                'nombre' => $this->input->post('nombre'),
+                'apellido' => $this->input->post('apellido'),
+                'fecha_nacimiento' => $this->input->post('fecha_nacimiento'),
+                'direccion' => $this->input->post('direccion'),
+                'zona' => $this->input->post('zona'),
+                'subzona' => $this->input->post('subzona'),
+                'telefono' => $this->input->post('telefono')
+            );
+            if(($this->input->post('password' == $this->input->post('password2')) && strlen($this->input->post('password')))) {
+                $datos['password'] = $this->input->post('password');
+            }
+                
+
+            $this->usuarios_model->update($datos, $idusuario);
+
+        }
+        
+        
+        $datos = array(
+            'idusuario' => $idusuario
+        );
+        $data['usuario'] = $this->usuarios_model->get_where($datos);
+        $datos = array(
+            'idtipo_usuario' => 3
+        );
+        $data['consultantes'] = $this->usuarios_model->gets_where($datos);
+        $data['zonas'] = $this->zonas_model->gets();
+        
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('consultantes/editar');
+        $this->load->view('layout/footer');
+    }
 }
 
 ?>
