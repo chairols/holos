@@ -36,6 +36,28 @@ class Consultas_model extends CI_Model {
         return $query->row_array();
     }
     
+    public function update($datos, $id) {
+        $this->db->update('consultas', $datos, $id);
+    }
+    
+    public function get_liquidacion($idusuario, $desde, $hasta) {
+        $query = $this->db->query("SELECT con.fecha, u.nombre, u.apellido, cat.categoria, cat.honorario
+                                    FROM
+                                        consultas con,
+                                        vinculos v,
+                                        categorias cat,
+                                        usuarios u
+                                    WHERE
+                                        con.idusuario = '$idusuario' AND
+                                        con.fecha BETWEEN '$desde' AND '$hasta' AND
+                                        con.idconsulta = v.idconsulta AND
+                                        con.idcategoria = cat.idcategoria AND
+                                        v.idusuario = u.idusuario AND
+                                        v.estado = 'Aceptado'
+                                    ORDER BY
+                                        con.fecha");
+        return $query->result_array();
+    }
 }
 
 ?>

@@ -21,7 +21,7 @@
                         </span>
                     </div>
                     <div class="widget-body">
-                        <table class="table table-striped table-bordered table-advance table-hover" id="sample_1">
+                        <table class="table table-bordered table-hover table-condensed" id="sample_1">
                             <thead>
                                 <tr>
                                     <th><i class="icon-user"></i> Profesional</th>

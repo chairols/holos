@@ -101,11 +101,13 @@
                     </div>
                 </div>
             </div>
+            
+            <?php if(!count($vinculo_existente)) { ?>
             <div class="span6">
                 <div class="widget blue">
                     <div class="widget-title">
                         <h4>
-                            <i class="icon-resize-small"></i> Vínculos Existentes
+                            <i class="icon-resize-small"></i> Solicitar Vínculo
                         </h4>
                         <span class="tools">
                             <a class="icon-chevron-down" href="javascript:;"></a>
@@ -113,10 +115,15 @@
                         </span>
                     </div>
                     <div class="widget-body">
-                        
+                        <a href="/vinculos/crear/<?=$idconsulta?>/">
+                            <button class="btn btn-success">
+                                <i class="icon-plus"></i> Solicitar Turno
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
     </div>
 </div>

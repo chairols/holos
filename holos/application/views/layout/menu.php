@@ -34,6 +34,12 @@
                       <li<?=($active=='profesiones')?" class='active'":""?>><a class="" href="/profesiones/">Profesiones</a></li>
                   </ul>
               </li>
+              <li class="sub-menu<?=($active=='liquidacion')?" active":""?>">
+                  <a class="" href="/liquidacion/">
+                      <i class="icon-dollar"></i>
+                      <span>Liquidación</span>
+                  </a>
+              </li>
               <?php } ?>
               <?php if($session['tipo_usuario'] == '2') { ?>
               <li class="sub-menu<?=($active=='dashboard')?" active":""?>">
@@ -54,7 +60,12 @@
                       <span>Consultas</span>
                   </a>
               </li>
-              
+              <li class="sub-menu<?=($active=='vinculos')?" active":""?>">
+                  <a class="" href="/vinculos/">
+                      <i class="icon-resize-small"></i>
+                      <span>Vínculos</span>
+                  </a>
+              </li>
               <?php } ?>
               <?php if($session['tipo_usuario'] == '3') { ?>
               <li class="sub-menu<?=($active=='dashboard')?" active":""?>">
@@ -70,7 +81,7 @@
                   </a>
               </li>
               <li class="sub-menu<?=($active=='vinculos')?" active":""?>">
-                  <a class="" href="/profesionales/vinculos/">
+                  <a class="" href="/vinculos/">
                       <i class="icon-resize-small"></i>
                       <span>Vínculos</span>
                   </a>

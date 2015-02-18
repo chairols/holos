@@ -19,6 +19,8 @@
    <script type="text/javascript" src="/assets/assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
    <script type="text/javascript" src="/assets/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
    <script type="text/javascript" src="/assets/assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+   <script type="text/javascript" src="/assets/assets/bootstrap-daterangepicker/date.js"></script>
+   <script type="text/javascript" src="/assets/assets/bootstrap-daterangepicker/daterangepicker.js"></script>
 
    <!-- ie8 fixes -->
    <!--[if lt IE 9]>

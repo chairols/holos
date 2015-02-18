@@ -1,3 +1,5 @@
+<?php switch ($session['tipo_usuario']) {
+    case '1': ?>
 <div id="main-content">
     <div class="container-fluid">
         <div class="row-fluid">
@@ -12,11 +14,9 @@
             <div class="metro-nav metro-fix-view">
                 <div class="metro-nav-block nav-block-orange">
                     <a data-original-title="" href="/categorias/" class="text-center">
-                        <span class="value">
-                            <i class="icon-tags"></i> 
-                            <?=count($categorias)?>
-                        </span>
-                        <div class="status">Categorías</div>
+                        <i class="icon-tags"></i>
+                        <div class="info"><?=count($categorias)?></div>
+                        <div class="status">Categorias</div>
                     </a>
                 </div>
                 <div class="metro-nav-block nav-block-green">
@@ -51,3 +51,33 @@
         </div>
     </div>
 </div>
+<?php
+        break;
+    case '2': ?>
+<div id="main-content">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <h3 class="page-title">
+                    <?=$title?>
+                </h3>
+            </div>
+        </div>
+        
+        <div class="row-fluid">
+            <div class="metro-nav metro-fix-view">
+                <div class="metro-nav-block nav-block-orange double">
+                    <a data-original-title="" href="/vinculos/" class="text-center">
+                        <i class="icon-resize-small"></i>
+                        <div class="info"><?=count($vinculos_pendientes)?></div>
+                        <div class="status">Vínculos Pendientes</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+        break;
+}
+    ?>

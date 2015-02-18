@@ -21,14 +21,14 @@
         this.ranges = {};
         this.opens = 'right';
         this.cb = function () { };
-        this.format = 'MM/dd/yyyy';
+        this.format = 'dd/MM/yyyy';
         this.separator = ' - ';
         this.showWeekNumbers = false;
         this.buttonClasses = ['btn-success'];
         this.locale = {
-            applyLabel: 'Apply',
-            fromLabel: 'From',
-            toLabel: 'To',
+            applyLabel: 'Aceptar',
+            fromLabel: 'Desde',
+            toLabel: 'Hasta',
             weekLabel: 'W',
             customRangeLabel: 'Custom Range',
             daysOfWeek: Date.CultureInfo.shortestDayNames,

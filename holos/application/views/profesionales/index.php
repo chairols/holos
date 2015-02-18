@@ -45,6 +45,7 @@
                                 <tr>
                                     <th><i class="icon-user-md"></i> Profesional</th>
                                     <th><i class="icon-info-sign"></i> Estado</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,6 +62,13 @@
                                             <span class="label label-important"><i class="icon-thumbs-down"></i> INACTIVO</span>
                                         </a>
                                         <?php } ?>
+                                    </td>
+                                    <td>
+                                        <a href="/profesionales/editar/<?=$profesional['idusuario']?>/">
+                                            <button class="btn btn-info tooltips" data-placement="top" data-original-title="Editar">
+                                                <i class="icon-edit"></i>
+                                            </button>
+                                        </a>
                                     </td>
                                 </tr>
                                 <?php } ?>

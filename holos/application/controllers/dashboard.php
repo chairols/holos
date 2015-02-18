@@ -10,7 +10,8 @@ class Dashboard extends CI_Controller {
             'categorias_model',
             'usuarios_model',
             'especializaciones_model',
-            'profesiones_model'
+            'profesiones_model',
+            'vinculos_model'
         ));
         $this->load->helper(array(
             'url'
@@ -54,6 +55,8 @@ class Dashboard extends CI_Controller {
                     'activo' => '1'
                 );
                 $data['profesionales'] = $this->usuarios_model->gets_where($datos);
+                
+                $data['vinculos_pendientes'] = $this->vinculos_model->gets_vinculos_pendientes($session['SID']);
                 break;
             case '3':
                 $data['title'] = 'Dashboard';

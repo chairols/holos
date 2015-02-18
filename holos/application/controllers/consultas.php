@@ -13,7 +13,8 @@ class Consultas extends CI_Controller {
         $this->load->model(array(
             'consultas_model',
             'consultas_respuestas_model',
-            'categorias_model'
+            'categorias_model',
+            'vinculos_model'
         ));
     }
     
@@ -113,7 +114,7 @@ class Consultas extends CI_Controller {
         );
         $data['consulta'] = $this->consultas_model->get_where($datos);
         $data['respuestas'] = $this->consultas_respuestas_model->gets_hilo_para_paciente($data['consulta']['idusuario'], $session['SID'], $idconsulta);
-        
+        $data['idconsulta'] = $idconsulta;
         
         $this->form_validation->set_rules('texto', 'Texto', 'required');
         
@@ -149,6 +150,13 @@ class Consultas extends CI_Controller {
             
             redirect("/consultas/crear/$idconsulta/", 'refresh');
         }
+        
+        $datos = array(
+            'idconsulta' => $idconsulta,
+            'idusuario' => $session['SID']
+        );
+        $data['vinculo_existente'] = $this->vinculos_model->get_where($datos);
+        
         
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');
