@@ -11,7 +11,7 @@
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget blue">
-                    <div class="widget-title">
+                    <div class="widget-title hidden-print">
                         <h4>
                             <i class="icon-list"></i> Listado
                         </h4>
@@ -69,6 +69,10 @@
                                     <li><strong>Total : </strong>$ <?=number_format($total, 2)?></li>
                                 </ul>
                             </div>
+                        </div>
+                        <div class="space20"></div>
+                        <div class="row-fluid text-center">
+                            <a class="btn btn-inverse btn-large hidden-print" onclick="javascript:window.print();">Imprimir <i class="icon-print"></i></a>
                         </div>
                     </div>
                 </div>

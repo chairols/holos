@@ -26,6 +26,8 @@
                                 <tr>
                                     <th><i class="icon-user"></i> Profesional</th>
                                     <th><i class="icon-user-md"></i> Profesión</th>
+                                    <th><i class="icon-map-marker"></i> Zona</th>
+                                    <th><i class="icon-map-marker"></i> Subzona</th>
                                     <th><i class="icon-paper-clip"></i> Acciones</th>
                                 </tr>
                             </thead>
@@ -38,6 +40,8 @@
                                         <?=$profesion['profesion']?> 
                                         <?php } ?>
                                     </td>
+                                    <td><?=$profesional['zona']['zona']?></td>
+                                    <td><?=$profesional['subzona']['subzona']?></td>
                                     <td>
                                         <a class="btn dropdown-toggle element" data-placement="top" data-toggle="tooltip" href="/profesionales/cv/<?=$profesional['idusuario']?>/" data-original-title="Ver CV">
                                             <i class="icon-user-md"></i>

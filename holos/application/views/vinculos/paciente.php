@@ -13,7 +13,7 @@
                 <div class="widget blue">
                     <div class="widget-title">
                         <h4>
-                            <i class="icon-dollar"></i> Liquidación
+                            <i class="icon-user"></i> Perfil
                         </h4>
                         <span class="tools">
                             <a class="icon-chevron-down" href="javascript:;"></a>
@@ -21,28 +21,26 @@
                         </span>
                     </div>
                     <div class="widget-body">
-                        <form class="form-horizontal" method="POST" action="/liquidacion/listar/">
+                        <div class="form-horizontal">
                             <div class="control-group">
-                                <label class="control-label">Profesional</label>
+                                <label class="control-label">Nombre</label>
                                 <div class="controls">
-                                    <select name="profesional" data-placeholder="Seleccionar Profesional..." class="chzn-select">
-                                        <?php foreach($profesionales as $profesional) { ?>
-                                        <option value="<?=$profesional['idusuario']?>"><?=$profesional['nombre']?> <?=$profesional['apellido']?></option>
-                                        <?php } ?>
-                                    </select>
+                                    <input type="text" class="small" name="nombre" value="<?=$usuario['nombre']?>" disabled>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label">Fecha</label>
+                                <label class="control-label">Apellido</label>
                                 <div class="controls">
-                                    <input id="reservation" name="fecha" type="text" class="m-ctrl-medium" required>
+                                    <input type="text" class="small" name="apellido" value="<?=$usuario['apellido']?>" disabled>
                                 </div>
                             </div>
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-success"><i class="icon-list"></i> Listar</button>
-                                <button type="reset" class="btn btn-danger"><i class="icon-remove"></i> Borrar</button>
+                            <div class="control-group">
+                                <label class="control-label">Fecha de Nacimiento</label>
+                                <div class="controls">
+                                    <input type="text" class="small" name="fecha_nacimiento" value="<?=  strftime("%d/%m/%Y", strtotime($usuario['fecha_nacimiento']))?>" disabled>
+                                </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

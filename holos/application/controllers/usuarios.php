@@ -63,6 +63,34 @@ class Usuarios extends CI_Controller {
         }
         switch ($session['tipo_usuario']) {
             case '1':
+                $data['title'] = 'Perfil';
+                $data['session'] = $session;
+                $data['active'] = 'perfil';
+                
+                $this->form_validation->set_rules('nombre', 'Nombre', 'required');
+                $this->form_validation->set_rules('apellido', 'Apellido', 'required');
+                
+                if($this->form_validation->run() == FALSE) {
+                    
+                } else {
+                    $datos = array(
+                        'nombre' => $this->input->post('nombre'),
+                        'apellido' => $this->input->post('apellido'),
+                        'telefono' => $this->input->post('telefono')
+                    );
+                    
+                    if(($this->input->post('password') == $this->input->post('password2')) && strlen($this->input->post('password'))) {
+                        $datos['password'] = $this->input->post('password'); 
+                    }
+                    
+                    $this->usuarios_model->update($datos, $session['SID']);
+                }
+                
+                $datos = array(
+                    'idusuario' => $session['SID']
+                );
+                $data['usuario'] = $this->usuarios_model->get_where($datos);
+                
                 break;
             case '2':
                 $data['title'] = 'Perfil';
@@ -89,7 +117,8 @@ class Usuarios extends CI_Controller {
                         'subzona' => $this->input->post('subzona'),
                         'direccion2' => $this->input->post('direccion2'),
                         // zona2 y subzona2
-                        'telefono' => $this->input->post('telefono')
+                        'telefono' => $this->input->post('telefono'),
+                        'descripcion' => $this->input->post('descripcion')
                     );
                     if(($this->input->post('password') == $this->input->post('password2')) && strlen($this->input->post('password'))) {
                         $datos['password'] = $this->input->post('password'); 

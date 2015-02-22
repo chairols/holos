@@ -8,7 +8,8 @@ class Vinculos extends CI_Controller {
         ));
         $this->load->model(array(
             'vinculos_model',
-            'consultas_model'
+            'consultas_model',
+            'usuarios_model'
         ));
         $this->load->helper(array(
             'url'
@@ -34,7 +35,7 @@ class Vinculos extends CI_Controller {
             case '3':
                 $data['vinculos'] = $this->vinculos_model->gets_vinculos_por_paciente($session['SID']);
                 foreach ($data['vinculos'] as $key => $value) {
-                    $data['vinculos'][$key]['asignado'] = $this->vinculos_model->get_usuario_asignado($value['idconsulta']);
+                    $data['vinculos'][$key]['asignado'] = $this->vinculos_model->get_mi_estado_paciente($value['idconsulta'], $session['SID']);
                 }
                 break;
             default:
@@ -95,7 +96,7 @@ class Vinculos extends CI_Controller {
                 $this->consultas_model->update($datos, $id);
                 
                 $datos = array(
-                    'estado' => 'Rechazado'
+                    'estado' => 'No aceptado'
                 );
                 $id = array(
                     'idconsulta' => $idconsulta
@@ -117,6 +118,39 @@ class Vinculos extends CI_Controller {
         }
         
         redirect('/vinculos/', 'refresh');
+    }
+    
+    public function paciente($idusuario) {
+        $session = $this->session->all_userdata();
+        if(!isset($session['SID'])) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        $data['title'] = 'Paciente';
+        $data['session'] = $session;
+        $data['active'] = 'vinculos';
+        switch ($session['tipo_usuario']) {
+            case '1':
+                show_404();
+                break;
+            case '2':
+                $datos = array(
+                    'idusuario' => $idusuario,
+                    'idtipo_usuario' => '3'
+                );
+                $data['usuario'] = $this->usuarios_model->get_where($datos);
+                break;
+            case '3':
+                show_404();
+                break;
+            default:
+                show_404();
+                break;
+        }
+        
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('vinculos/paciente');
+        $this->load->view('layout/footer');
     }
 }
 ?>

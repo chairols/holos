@@ -85,5 +85,17 @@ class Vinculos_model extends CI_Model {
                                         v.idusuario = u.idusuario");
         return $query->row_array();
     }
+    
+    public function get_mi_estado_paciente($idconsulta, $idusuario) {
+        $query = $this->db->query("SELECT *
+                                    FROM
+                                        vinculos v,
+                                        usuarios u
+                                    WHERE
+                                        v.idconsulta = $idconsulta AND
+                                        v.idusuario = u.idusuario AND
+                                        v.idusuario = $idusuario");
+        return $query->row_array();
+    }
 }
 ?>

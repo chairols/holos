@@ -36,7 +36,7 @@
                             <tbody>
                                 <?php foreach($vinculos as $vinculo) { ?>
                                 <tr>
-                                    <td><?=$vinculo['nombre']?> <?=$vinculo['apellido']?></td>
+                                    <td><a href="/vinculos/paciente/<?=$vinculo['idusuario']?>/"><?=$vinculo['nombre']?> <?=$vinculo['apellido']?></a></td>
                                     <td><?=date("d/m/Y", strtotime($vinculo['fecha']))?></td>
                                     <td><?=substr($vinculo['fecha'], 10, 9)?></td>
                                     <td><?=$vinculo['estado']?></td>

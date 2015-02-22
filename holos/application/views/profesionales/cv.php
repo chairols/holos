@@ -119,6 +119,12 @@
                                 </div>
                             </div>
                             <div class="control-group">
+                                <label class="control-label">Descripción</label>
+                                <div class="controls">
+                                    <textarea class="small" rows="5" disabled><?=$profesional['descripcion']?></textarea>
+                                </div>
+                            </div>
+                            <div class="control-group">
                                 <label class="control-label">Email</label>
                                 <div class="controls">
                                     <input type="text" class="small" value="<?=$profesional['email']?>" readonly>

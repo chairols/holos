@@ -67,6 +67,7 @@ class Profesionales extends CI_Controller {
                     'zona2' => $this->input->post('zona2'),
                     'subzona2' => $this->input->post('subzona2'),
                     'telefono' => $this->input->post('telefono'),
+                    'descripcion' => $this->input->post('descripcion'),
                     'email' => $this->input->post('email'),
                     'password' => $this->input->post('password'),
                     'idtipo_usuario' => 2,
@@ -148,8 +149,16 @@ class Profesionales extends CI_Controller {
         $data['profesionales'] = $this->usuarios_model->gets_where($datos);
         foreach($data['profesionales'] as $key => $value) { 
             $data['profesionales'][$key]['profesiones'] = $this->profesiones_model->gets_profesiones_por_usuario($value['idusuario']);
+            $datos = array(
+                'idzona' => $value['zona']
+            );
+            $data['profesionales'][$key]['zona'] = $this->zonas_model->get_where($datos);
+            
+            $datos = array(
+                'idsubzona' => $value['subzona']
+            );
+            $data['profesionales'][$key]['subzona'] = $this->subzonas_model->get_where($datos);
         }
-        
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');
         $this->load->view('profesionales/cartilla');

@@ -215,6 +215,12 @@
                                 </div>
                             </div>
                             <div class="control-group">
+                                <label class="control-label">Descripción</label>
+                                <div class="controls">
+                                    <textarea class="small" name="descripcion" rows="5"></textarea>
+                                </div>
+                            </div>
+                            <div class="control-group">
                                 <label class="control-label">Contraseña</label>
                                 <div class="controls">
                                     <input type="password" class="small" name="password" required>
